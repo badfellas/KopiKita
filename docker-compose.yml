@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+    image: final-supermarket-web-main
+    container_name: final-supermarket-web-main
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+    working_dir: /var/www/final-supermarket-web-main
+    volumes:
+      - .:/var/www/final-supermarket-web-main/
+      - ./storage/php.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - final-supermarket-web-main
+
+  webserver:
+    image: nginx:alpine
+    container_name: nginxfinal-supermarket-web-main
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8082:80"  # Mengganti port webserver dari 2022 ke 8080
+    volumes:
+      - .:/var/www/final-supermarket-web-main
+      - ./storage/:/etc/nginx/conf.d/
+    networks:
+      - final-supermarket-web-main
+
+  db:
+    image: mysql:5.7
+    container_name: dbfinal-supermarket-web-main
+    restart: always
+    tty: true
+    ports:
+      - "3308:3306"  # Mengganti port database dari 20222 ke 3307
+    volumes:
+      - lbdata:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: audit123
+      MYSQL_DATABASE: project_KomputasiAwan_final
+    networks:
+      - final-supermarket-web-main
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pmafinal-supermarket-web-main
+    links:
+      - db
+    restart: always
+    ports:
+      - "8081:80"  # Mengganti port phpMyAdmin dari 7000 ke 8081
+    networks:
+      - final-supermarket-web-main
+
+networks:
+  final-supermarket-web-main:
+    driver: bridge
+
+volumes:
+  lbdata:
+    driver: local

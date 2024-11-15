@@ -1,0 +1,13 @@
+import 'datatables.net-bs5';
+import 'datatables.net-buttons-bs5';
+import './datatable/produk';
+import './datatable/kategori';
+import './datatable/supplier';
+import './datatable/pemesanan';
+import './datatable/pembayaran';
+import './datatable/pembayaran-logs';
+import './datatable/keranjang';
+import './datatable/pesanan_user';
+import './kode';
+import './resetform';
+import './tom-select.base.min';
