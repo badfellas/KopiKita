@@ -6,7 +6,7 @@ COPY composer.* /var/www/final-supermarket-web-main/
 # Mengatur direktori kerja
 WORKDIR /var/www/final-supermarket-web-main
 
-# Memasang dependensi sistem yang diperlukan
+# Memasang dependensi sistem yang diperlukan dan ekstensi PHP
 RUN apt-get update && apt-get install -y \
     build-essential \
     libmcrypt-dev \
@@ -22,14 +22,10 @@ RUN apt-get update && apt-get install -y \
     curl \
     libzip-dev \
     zip \
-    libicu-dev  # Menambahkan libicu-dev untuk intl
-
-# Menginstal ekstensi PHP yang diperlukan
-RUN docker-php-ext-configure intl
-RUN docker-php-ext-install pdo pdo_mysql gd zip intl  # Menambahkan intl di sini
-
-# Membersihkan cache dan file yang tidak perlu
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+    libicu-dev && \
+    docker-php-ext-configure intl && \
+    docker-php-ext-install pdo pdo_mysql gd zip intl && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Menginstal Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
