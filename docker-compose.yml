@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: .
-    image: final-supermarket-web-main
+    image: ${DOCKERHUB_CREDENTIALS_USR}/final-supermarket-web-main:latest  # Menggunakan variabel DOCKERHUB_CREDENTIALS_USR
     container_name: final-supermarket-web-main
     restart: unless-stopped
     tty: true
