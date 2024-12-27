@@ -2,13 +2,13 @@
     <div class="btn-list flex-nowrap">
         @csrf
         @method('delete')
-        <a class="btn" onclick="confirmDelete({{ $pesanan->id }})">
+        <!-- <a class="btn" onclick="confirmDelete({{ $pesanan->id }})">
             Hapus
-        </a>
+        </a> -->
         <div class="dropdown">
-            <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown">
+            <!-- <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown">
                 Action
-            </button>
+            </button> -->
             <div class="dropdown-menu dropdown-menu-end">
                 <!-- <a class="dropdown-item" href="">
                     Detail

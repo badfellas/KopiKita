@@ -54,7 +54,7 @@ pipeline {
         }
         success {
             echo 'Pipeline completed successfully.'
-            discordSend description: "✅ Build berhasil! Image Docker berhasil dibuat dengan tag: ${env.DOCKER_TAG}. 🚀 Cek log lengkap di Jenkins.", 
+            discordSend description: "✅ Build berhasil!!! Image Docker berhasil dibuat dengan tag: ${env.DOCKER_TAG}. 🚀 Cek log lengkap di Jenkins.", 
                         footer: 'Jenkins CI/CD - Build Sukses', 
                         webhookURL: 'https://discord.com/api/webhooks/1321809292579311628/Dro67YopANf12JD2EyTTt3rFKac2sA56gHNicZY2xOyRczZJaA68uTyJB9MQx9wwtqds'
         }

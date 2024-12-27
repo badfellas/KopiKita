@@ -120,10 +120,7 @@
         var metodePembayaran = document.getElementById('metodeSpan').innerText;
         var metodeColor = "";
         switch (metodePembayaran) {
-            case "Bayar menggunakan QRIS":
-                metodeColor = "bg-blue";
-                break;
-            case "Bayar Di Kasir (Cash)":
+            case "Bayar Di Kasir (Bisa Cash & QRIS)":
                 metodeColor = "bg-green";
                 break;
             default:

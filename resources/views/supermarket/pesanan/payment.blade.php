@@ -16,8 +16,7 @@
                                 <select class="form-select @error('metode_pembayaran') is-invalid @enderror"
                                     name="metode_pembayaran" id="metode_pembayaran">
                                     <option value="">Pilih Metode Pembayaran</option>
-                                    <option value="qris">Bayar menggunakan QRIS</option>
-                                    <option value="cash">Bayar Di Kasir (Cash)</option>
+                                    <option value="cash">Bayar Di Kasir (Bisa Cash & QRIS)</option>
                                 </select>
                                 @error('metode_pembayaran')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -65,7 +64,8 @@
 <script>
     document.getElementById('metode_pembayaran').addEventListener('change', function() {
         var qrisContainer = document.getElementById('qris-barcode-container');
-        if (this.value === 'qris') {
+        // Cek apakah metode pembayaran adalah 'cash' (termasuk QRIS)
+        if (this.value === 'cash') {
             qrisContainer.style.display = 'block'; // Tampilkan gambar QRIS
         } else {
             qrisContainer.style.display = 'none'; // Sembunyikan gambar QRIS

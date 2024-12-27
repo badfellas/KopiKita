@@ -10,7 +10,6 @@ class MetodePembayaranSeeder extends Seeder
     public function run()
     {
         // Tambahkan metode pembayaran ke dalam tabel
-        MetodePembayaran::create(['nama' => 'Bayar menggunakan QRIS']);
-        MetodePembayaran::create(['nama' => 'Bayar Di Kasir (Cash)']);
+        MetodePembayaran::create(['nama' => 'Bayar Di Kasir (Bisa Cash & QRIS)']);
     }
 }

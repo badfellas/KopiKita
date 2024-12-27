@@ -46,7 +46,7 @@
                                     <div class="datagrid-title">Produk dipesan</div>
                                     @foreach ($pemesanan->detailPemesanan as $detail_pemesanan)
                                         <div class="input-group" style="display: inline-flex;">
-                                            <input type="text" class="form-control" value="{{ $detail_pemesanan->produk->kode_produk }}" readonly>
+                                            <input type="text" class="form-control" value="{{ $detail_pemesanan->produk->nama_produk }}" readonly>
                                             <a class="btn" style="width: 50px;">x {{ $detail_pemesanan->jumlah }}</a>
                                         </div>
                                     @endforeach
